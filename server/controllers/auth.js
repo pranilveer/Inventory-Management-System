@@ -65,7 +65,7 @@ exports.login = async (req, res) => {
           return res.status(401).json({ error: "Invalid username or password" });
         }
     // Generate and return the JWT token
-    const token = jwt.sign({ userId: user._id }, HighlyConfidentialKey, {
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
         expiresIn: 3000,
       });
       res

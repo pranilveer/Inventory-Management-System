@@ -1,9 +1,9 @@
 const app = require("./index");
 const mongoose = require("mongoose");
 
-app.listen(process.env.port, () => {
+app.listen(process.env.port || 4000, () => {
   mongoose
-    .connect('mongodb+srv://admin:admin123@cluster0.baaxb8k.mongodb.net/?retryWrites=true&w=majority', {
+    .connect(process.env.DB_CONNECT, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
